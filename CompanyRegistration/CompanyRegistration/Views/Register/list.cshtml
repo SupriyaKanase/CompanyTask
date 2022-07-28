@@ -1,0 +1,55 @@
+﻿@model CompanyRegistration.Models.ClS
+
+@{
+    ViewBag.Title = "list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>list</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        @*<th>
+
+        </th>*@
+    </tr>
+
+    @foreach (var item in Model.lstcls)
+    {
+
+        <tr>
+           
+                @Html.HiddenFor(modelItem => item.RegisterId)
+            
+            <td>
+                @Html.ActionLink(item.FirstName, "Details", new { id = item.RegisterId })
+                @*@Html.DisplayFor(modelItem => item.FirstName)*@
+            </td>
+            @*<td>
+                @Html.ActionLink("Details","Details", new { id = item.RegisterId })
+            </td>*@
+
+        </tr>
+
+        <!--<tr>
+            @Html.HiddenFor(model => item.RegisterId)-->
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.RegisterId)
+                </td>*@
+            <!--<td>
+                @Html.ActionLink(item.FirstName, "Details", "Register", new { id = item.RegisterId })-->
+                @*@Html.DisplayFor(modelItem => item.FirstName)*@
+            <!--</td>
+
+
+        </tr>-->
+    }
+
+</table>
